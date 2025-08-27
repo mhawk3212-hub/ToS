@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .tos-container {
+        background-color: white;
+        padding: 20px;
+        max-width: 600px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    p {
+        line-height: 1.6;
+        margin-bottom: 1em;
+    }
+    .agree-btn {
+        display: block;
+        margin: 20px auto 0;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        background-color: #1F80E0;
+        border: none;
+        border-radius: 5px;
+        cursor: not-allowed; /* disabled style */
+        opacity: 0.6;
+    }
+    .agree-btn.enabled {
+        cursor: pointer;
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+
+<div class="tos-container">
+    <h1>Terms of Service</h1>
+
+    <p>Effective Date: [Insert Date]</p>
+
+    <p>Welcome to [Your Website Name] (“we”, “our”, “us”). By accessing or using our website and services (the “Service”), you agree to the following terms and conditions. If you do not agree, do not use our Service.</p>
+
+    <h2>1. Eligibility</h2>
+    <p>You must be at least the legal gambling age in your jurisdiction to use our Service. By using the Service, you represent and warrant that you meet all eligibility requirements.</p>
+
+    <h2>2. Risk Acknowledgment</h2>
+    <p>The Service is intended for entertainment purposes only. By using the Service, you acknowledge and agree that all games involve risk, including the risk of losing money. We do not guarantee winnings. Your use of the Service is at your own risk.</p>
+
+    <h2>3. No Liability</h2>
+    <p>To the maximum extent permitted by law, [Your Website Name] and its affiliates, officers, employees, or partners shall not be liable for any loss of money, data, or other losses resulting from using the Service. You agree to indemnify and hold harmless [Your Website Name] from any claims arising from your use of the Service.</p>
+
+    <h2>4. Account Responsibility</h2>
+    <p>You are responsible for maintaining the confidentiality of your account credentials and ensuring that all activity on your account is lawful and compliant with these Terms.</p>
+
+    <h2>5. Prohibited Use</h2>
+    <p>You may not attempt to manipulate or cheat the Service, violate any applicable laws or regulations, or interfere with other users’ access to the Service.</p>
+
+    <h2>6. Modifications</h2>
+    <p>We reserve the right to modify, suspend, or terminate the Service at any time without notice and to update these Terms of Service; continued use constitutes acceptance of the new terms.</p>
+
+    <h2>7. Governing Law</h2>
+    <p>These Terms shall be governed by the laws of [Your Jurisdiction]. Any disputes shall be resolved in the appropriate courts in that jurisdiction.</p>
+
+    <h2>8. Acknowledgment</h2>
+    <p>By using our Service, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+
+    <button id="agree-btn" class="agree-btn">I Agree (10)</button>
+</div>
+
+<script>
+    const button = document.getElementById('agree-btn');
+    let countdown = 10;
+
+    const timer = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+            button.textContent = `I Agree (${countdown})`;
+        } else {
+            button.textContent = "I Agree";
+            button.classList.add('enabled');
+            button.style.cursor = "pointer";
+            button.disabled = false;
+            clearInterval(timer);
+        }
+    }, 1000);
+
+    button.addEventListener('click', () => {
+        if (!button.classList.contains('enabled')) return;
+        alert("Thank you for agreeing!");
+    });
+</script>
+
+</body>
+</html>
